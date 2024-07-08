@@ -43,3 +43,12 @@ footer {
   margin: 0 auto;
 
 }
+
+
+p {
+  @apply  text-dark;
+}
+
+h2 {
+  @apply font-bold;
+}

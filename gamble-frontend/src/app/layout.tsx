@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "./componentss/Header";
 import Footer from "./componentss/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: '500' });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body className="bg-light">
         <Header />
         {children}

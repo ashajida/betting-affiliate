@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-dark text-light py-[80px]">
       <div className="container">
         <div className="flex justify-center items-center">
-          <p>&copy; CopyRight {date.getFullYear()}</p>
+          <p className="text-light">&copy; CopyRight {date.getFullYear()}</p>
         </div>
       </div>
     </footer>

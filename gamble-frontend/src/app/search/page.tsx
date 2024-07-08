@@ -32,13 +32,13 @@ const Search = async ({ searchParams }: Props) => {
   return (
     <section className='py-20'>
        <div className="container">
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="grid lg:grid-cols-4 md:flex-row gap-6">
         {
             collection?.length
             &&
             collection.map((data, index) => {
                 return(
-                    <Card key={index} classes="bg-white col-1 w-full justify-between pb-6">
+                    <Card key={index} classes="col-span-1 bg-white col-1 w-full justify-between pb-6">
                         <Link href=''>
                           <Image
                             className="w-full mb-4"

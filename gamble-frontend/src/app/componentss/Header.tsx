@@ -10,13 +10,9 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
 
     const handleResize = useCallback(() => {
-        if(window.innerWidth < 768) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-            if(isOpen) setIsOpen(false);
-        }
-    }, [isOpen]);
+        if(window.innerWidth <= 1024) return setIsMobile(true);
+        setIsMobile(false);
+    }, []);
      
     const path = usePathname()
     
@@ -25,9 +21,8 @@ const Header = () => {
     const searchInput = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        if(window.innerWidth < 768) {
-            setIsMobile(true);
-        }
+        if(window.innerWidth <= 1024) return setIsMobile(true);
+        setIsMobile(false);
 
         window.addEventListener('resize', handleResize)
 
@@ -39,17 +34,17 @@ const Header = () => {
     }, [isMobile, handleResize])
 
   return (
-    <header className='h-[67px] flex items-center bg-dark text-light'>
+    <header className='h-[67px] flex items-center bg-dark text-light relative'>
         <div className='container'>
-            <div className={`flex items-center relative ${isMobile ? 'gap-4 overflow-hidden' : 'justify-between'}`}>
+            <div className={`flex items-center overflow-hidden gap-4 lg:gap-0 lg:justify-between`}>
                 <Link href="/">Logo</Link>
-                <button  onClick={() => setIsOpen(!isOpen)} className={`${isMobile ? 'block -order-first' : 'hidden'}`}>
+                <button  onClick={() => setIsOpen(!isOpen)} className='block order-last lg:hidden'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                     </svg>
                 </button>
-                <nav className={`flex gap-4 ${isMobile ? 'flex-col absolute top-0 left-0 h-[100dvh] w-[100vw] bg-dark justify-center text-center transition-transform translate-x-full' : ''} ${isOpen ? 'translate-x-0' : ''}`}>
-                    <button className={`absolute top-5 right-5 ${!isMobile ? 'hidden' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+                <nav className={`bg-dark flex flex-col lg:flex-row w-full lg:w-auto justify-center lg:justify-normal fixed lg:relative top-0 left-0 h-[100dvh] lg:h-auto items-center gap-[22px] text-white bg-black lg:bg-transparent transition-transform ${!isOpen ? ' translate-x-[100%]' : ' translate-x-[0%]' } lg:translate-x-0`}>
+                    <button className='absolute top-5 right-5 lg:hidden' onClick={() => setIsOpen(!isOpen)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-x-lg tran" viewBox="0 0 16 16">
                             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                         </svg>
@@ -62,13 +57,14 @@ const Header = () => {
                     setShowSearch(!showSearch);
                     searchInput.current?.focus();
                     console.log( searchInput.current);
-                }} className={`${isMobile ? 'ml-auto' : ''}`}>
+                }} className={`ml-auto lg:ml-0`}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                     </svg>
                 </button>
                 <div className={` ${!showSearch && 'hidden'} transition-all flex flex-col justify-center fixed top-0 left-0 h-[100dvh] w-[100vw] bg-dark`}>
-                    <button className={`absolute top-16 right-16`} onClick={() => setShowSearch(!showSearch)}>
+                    <div className="container">
+                    <button className={`absolute top-4 right-4 lg:top-16 lg:right-16`} onClick={() => setShowSearch(!showSearch)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-x-lg tran" viewBox="0 0 16 16">
                             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                         </svg>
@@ -86,11 +82,7 @@ const Header = () => {
                             </button>
                         </label>
                     </form>
-                </div>
-                <div className={`absolute right-0 bottom-[-80px] h-fit w-[300px] bg-light rounded-md p-4 translate-y-[-200%]  transition duration-150 ${showSearch && 'translate-y-0'}`}>
-                    <form>
-                        <input className='w-full p-2 text-dark'/>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

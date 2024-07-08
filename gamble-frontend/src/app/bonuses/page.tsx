@@ -15,7 +15,7 @@ const Bonuses = async () => {
             <p>Browse By:</p>  
             <Link className='border rounded-xl border-primary py-1 px-3' href=''>item</Link>
         </div>
-        <div className='grid grid-cols-4 gap-6'>
+        <div className='grid lg:grid-cols-4 gap-6'>
             {
                 bonuses?.length
                 &&
