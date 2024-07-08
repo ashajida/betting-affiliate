@@ -24,7 +24,7 @@ const Homepage = async () => {
           <h2 className="font-bold text-[32px] text-center mb-3">
             Welcome To Our Site
           </h2>
-          <span className="text-center block mb-6">
+          <span className="text-center block mb-6 text-dark">
             Your ultimate destination for all things betting
           </span>
           <div className="grid lg:grid-cols-3 gap-6">
@@ -143,7 +143,7 @@ const Homepage = async () => {
       </section>
       <section>
         <div className="container py-20">
-          <h2 className="font-bold text-[32px] text-center mb-[58px]">
+          <h2 className="font-bold text-[32px] text-center mb-[58px] text-dark">
             Popular Games 🎰
           </h2>
           <div className="grid lg:grid-cols-4 gap-6">
