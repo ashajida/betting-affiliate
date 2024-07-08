@@ -21,7 +21,7 @@ const Homepage = async () => {
       </div>
       <section className="py-20">
         <div className="container">
-          <h2 className="font-bold text-[32px] text-center mb-3">
+          <h2 className="font-bold text-[32px] text-center mb-3 text-dark">
             Welcome To Our Site
           </h2>
           <span className="text-center block mb-6 text-dark">
