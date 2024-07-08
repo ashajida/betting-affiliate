@@ -1,9 +1,13 @@
+
+'use client'
+
 import AdminNav from '@/app/componentss/AdminNav'
-import { schemaTypes } from '@/sanity/schemaTypes'
+import { schemaTypes } from '@/app/studio/schemaTypes'
 import {defineConfig, isDev} from 'sanity'
 //import {visionTool} from 'sanity/vision'
 import {structureTool} from 'sanity/structure'
 //import {getStartedPlugin} from './plugins/sanity-plugin-tutorial'
+
 
 export default defineConfig({
   name: 'default',

@@ -10,6 +10,8 @@ const Homepage = async () => {
   const games = await getAllGames();
   const bonuses = await getAllBonuses();
 
+  console.log(games);
+
   return (
     <>
       <div className="w-full h-[700px] w-[100%] bg-hero-bg bg-no-repeat bg-cover"></div>
