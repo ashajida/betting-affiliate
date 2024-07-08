@@ -14,7 +14,11 @@ const Homepage = async () => {
 
   return (
     <>
-      <div className="w-full h-[700px] w-[100%] bg-hero-bg bg-no-repeat bg-cover"></div>
+      <div className="w-full h-[400px] lg:[900px] bg-hero-bg bg-no-repeat bg-cover bg-center py-20">
+          <div className="container">
+          <h1 className="text-light font-bold text-heading">Unleash the Game: Search, Bet, and Score Big with the Hottest Deals on All Sports</h1>
+          </div>
+      </div>
       <section className="py-20">
         <div className="container">
           <h2 className="font-bold text-[32px] text-center mb-6">

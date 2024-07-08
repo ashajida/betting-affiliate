@@ -30,6 +30,7 @@ const config: Config = {
     fontSize: {
       sm: '0.8rem',
       base: '1rem',
+      heading: 'clamp(34px, 5vw, 56px)',
       xl: '1.438rem',
       '2xl': '2rem',
       '3xl': '2.5rem',
