@@ -1,5 +1,5 @@
 import "server-only";
-import { schemaTypes } from "@/app/studio/schemaTypes";
+import { schemaTypes } from "../../sanity/schemaTypes";
 //import { ConfigContext, defineConfig } from "sanity";
 import { StructureBuilder } from "sanity/structure";
 import imageUrlBuilder from '@sanity/image-url'

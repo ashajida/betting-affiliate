@@ -7,17 +7,18 @@ export const getAllBonuses = async () => {
   ]{title, image, description}`;
 
     try {
-    const result = await client.fetch(GET_ALL_BONUS)
+    const result = await client.fetch(GET_ALL_BONUS, {},  { cache: 'no-store' })
     return result as Promise<Array<Bonus>>;
     } catch(e) {
         console.log(e);
     }
 }
 
+
 export const getBonus = async (query: string) => { 
   const GET_BONUS = `*[_type == "bonus" &&  title match '${query}*']{title, image, description}`;
   try {
-    const result = await client.fetch(GET_BONUS)
+    const result = await client.fetch(GET_BONUS,{},  { cache: 'no-store' })
     return result as Promise<Array<Bonus>>;
     } catch(e) {
         console.log(e);

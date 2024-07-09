@@ -2,7 +2,7 @@
 'use client'
 
 import AdminNav from '@/app/componentss/AdminNav'
-import { schemaTypes } from '@/app/studio/schemaTypes'
+import { schemaTypes } from './sanity/schemaTypes'
 import {defineConfig, isDev} from 'sanity'
 //import {visionTool} from 'sanity/vision'
 import {structureTool} from 'sanity/structure'
@@ -17,11 +17,6 @@ export default defineConfig({
   plugins: [structureTool()],
   schema: {
     types: schemaTypes,
-  },
-  studio: {
-    components: {
-        navbar: AdminNav
-    }
   }
 })
 
